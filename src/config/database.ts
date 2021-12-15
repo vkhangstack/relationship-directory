@@ -3,7 +3,7 @@ import { connect, ConnectOptions } from "mongoose";
 const connecting = (): void => {
   try {
     const uri: string = process.env.MONGO_URI as string;
-    console.log(uri);
+
     connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,

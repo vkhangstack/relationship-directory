@@ -12,7 +12,7 @@ const infoSchema = new Schema(
       required: false,
     },
     phone: {
-      type: String,
+      type: Number,
       required: true,
     },
     birthday: {
@@ -24,7 +24,7 @@ const infoSchema = new Schema(
       required: false,
     },
     bank: {
-      type: String,
+      type: Number,
       required: false,
     },
     socialMedia: {

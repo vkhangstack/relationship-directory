@@ -1,10 +1,10 @@
-import { connect, ConnectOptions } from "mongoose";
+import mongoose, { ConnectOptions } from "mongoose";
 
-const connecting = (): void => {
+const connecting = async (): Promise<void> => {
   try {
-    const uri: string = process.env.MONGO_URI as string;
+    const uri: string = process.env.MONGODB_URI as string;
 
-    connect(uri, {
+    await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     } as ConnectOptions);
@@ -15,4 +15,13 @@ const connecting = (): void => {
   }
 };
 
-export { connecting };
+const disconnect = async (): Promise<void> => {
+  try {
+    await mongoose.disconnect();
+    console.log("Disconnected from success!");
+  } catch (error) {
+    console.log("Errors disconnecting database");
+  }
+};
+
+export { connecting, disconnect };
